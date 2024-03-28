@@ -13,6 +13,20 @@ module Enumerable
     end
     false
   end
+
+  def my_count
+    @i = 0
+    if block_given?
+      self.each do |element|
+        if yield(element)
+          @i += 1
+        end
+      end
+    else 
+      @i = size
+    end
+    return @i
+  end
 end
 
 # You will first have to define my_each
