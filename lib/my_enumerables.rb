@@ -37,6 +37,15 @@ module Enumerable
     true
   end
 
+  def my_select
+    new_arr = []
+    self.each do |element|
+      if yield(element)
+        new_arr << element
+      end
+    end
+    return new_arr
+  end
 
 end
 
