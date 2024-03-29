@@ -47,6 +47,14 @@ module Enumerable
     return new_arr
   end
 
+  def my_map(&block)
+    new_arr = []
+    self.each do |element|
+      new_arr << block.call(element)
+    end
+    new_arr
+  end
+
 end
 
 # You will first have to define my_each
