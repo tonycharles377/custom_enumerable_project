@@ -55,6 +55,14 @@ module Enumerable
     new_arr
   end
 
+  def my_each_with_index
+    index = -1
+    self.each do |element|
+      index += 1
+      yield(element, index)
+    end
+    self
+  end
 end
 
 # You will first have to define my_each
