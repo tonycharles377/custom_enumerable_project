@@ -1,5 +1,7 @@
 module Enumerable
   # Your code goes here
+  # if executes a code when condition is true
+  # unless executes code when condition is false
   def my_all?
     self.each do |element|
       return false unless yield(element)
@@ -15,18 +17,27 @@ module Enumerable
   end
 
   def my_count
-    @i = 0
+    i = 0
     if block_given?
       self.each do |element|
         if yield(element)
-          @i += 1
+          i += 1
         end
       end
     else 
-      @i = size
+      i = size
     end
-    return @i
+    return i
   end
+
+  def my_none?
+    self.each do |element|
+      return false if yield(element)
+    end
+    true
+  end
+
+
 end
 
 # You will first have to define my_each
